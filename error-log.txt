@@ -1,0 +1,54 @@
+2026-03-24T22:53:15.777Z - ERROR /api/config: MongooseError: Cannot call `configs.findOne()` before initial connection is complete if `bufferCommands = false`. Make sure you `await mongoose.connect()` if you have `bufferCommands = false`.
+    at NativeCollection.<computed> [as findOne] (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:237:15)
+    at model.Query._findOne (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:2710:45)
+    at model.Query.exec (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///D:/Users/Windows/Downloads/software-system-main/software-system-main/api/index.js:399:22
+2026-03-25T01:57:31.222Z - ERROR /api/config: MongooseError: Cannot call `configs.findOne()` before initial connection is complete if `bufferCommands = false`. Make sure you `await mongoose.connect()` if you have `bufferCommands = false`.
+    at NativeCollection.<computed> [as findOne] (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:237:15)
+    at model.Query._findOne (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:2710:45)
+    at model.Query.exec (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///D:/Users/Windows/Downloads/software-system-main/software-system-main/api/index.js:377:22
+2026-03-25T01:57:31.234Z - ERROR /api/config: MongooseError: Cannot call `configs.findOne()` before initial connection is complete if `bufferCommands = false`. Make sure you `await mongoose.connect()` if you have `bufferCommands = false`.
+    at NativeCollection.<computed> [as findOne] (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:237:15)
+    at model.Query._findOne (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:2710:45)
+    at model.Query.exec (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///D:/Users/Windows/Downloads/software-system-main/software-system-main/api/index.js:377:22
+2026-03-25T04:13:57.044Z - ERROR /api/config: MongooseError: Cannot call `configs.findOne()` before initial connection is complete if `bufferCommands = false`. Make sure you `await mongoose.connect()` if you have `bufferCommands = false`.
+    at NativeCollection.<computed> [as findOne] (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:237:15)
+    at model.Query._findOne (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:2710:45)
+    at model.Query.exec (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///D:/Users/Windows/Downloads/software-system-main/software-system-main/api/index.js:377:22
+2026-03-25T04:13:57.054Z - ERROR /api/config: MongooseError: Cannot call `configs.findOne()` before initial connection is complete if `bufferCommands = false`. Make sure you `await mongoose.connect()` if you have `bufferCommands = false`.
+    at NativeCollection.<computed> [as findOne] (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:237:15)
+    at model.Query._findOne (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:2710:45)
+    at model.Query.exec (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///D:/Users/Windows/Downloads/software-system-main/software-system-main/api/index.js:377:22
+2026-03-25T04:17:15.480Z - ERROR /api/config: MongooseError: Cannot call `configs.findOne()` before initial connection is complete if `bufferCommands = false`. Make sure you `await mongoose.connect()` if you have `bufferCommands = false`.
+    at NativeCollection.<computed> [as findOne] (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:237:15)
+    at model.Query._findOne (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:2710:45)
+    at model.Query.exec (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///D:/Users/Windows/Downloads/software-system-main/software-system-main/api/index.js:381:22
+2026-03-25T04:17:15.487Z - ERROR /api/config: MongooseError: Cannot call `configs.findOne()` before initial connection is complete if `bufferCommands = false`. Make sure you `await mongoose.connect()` if you have `bufferCommands = false`.
+    at NativeCollection.<computed> [as findOne] (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:237:15)
+    at model.Query._findOne (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:2710:45)
+    at model.Query.exec (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///D:/Users/Windows/Downloads/software-system-main/software-system-main/api/index.js:381:22
+2026-03-25T04:17:15.490Z - ERROR /api/config: MongooseError: Cannot call `configs.findOne()` before initial connection is complete if `bufferCommands = false`. Make sure you `await mongoose.connect()` if you have `bufferCommands = false`.
+    at NativeCollection.<computed> [as findOne] (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:237:15)
+    at model.Query._findOne (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:2710:45)
+    at model.Query.exec (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///D:/Users/Windows/Downloads/software-system-main/software-system-main/api/index.js:381:22
+2026-03-25T04:17:15.492Z - ERROR /api/config: MongooseError: Cannot call `configs.findOne()` before initial connection is complete if `bufferCommands = false`. Make sure you `await mongoose.connect()` if you have `bufferCommands = false`.
+    at NativeCollection.<computed> [as findOne] (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:237:15)
+    at model.Query._findOne (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:2710:45)
+    at model.Query.exec (D:\Users\Windows\Downloads\software-system-main\software-system-main\node_modules\mongoose\lib\query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///D:/Users/Windows/Downloads/software-system-main/software-system-main/api/index.js:381:22
