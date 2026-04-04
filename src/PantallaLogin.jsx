@@ -31,7 +31,7 @@ export default function PantallaLogin({ alIngresar, config }) {
                     {config.logoUrl ? (
                         <img src={config.logoUrl} alt="Logo" style={{ height: '80px', marginBottom: '1rem', filter: 'drop-shadow(0 0 10px rgba(0,0,0,0.5))' }} />
                     ) : (
-                        <img src="/logo2.png" alt="PILLAR Logo" style={{ height: '120px', marginBottom: '1rem', filter: 'drop-shadow(0 0 10px rgba(0,0,0,0.5))' }} />
+                        <img src="/logo_vertical_pillar.png" alt="PILLAR Logo" style={{ height: '120px', marginBottom: '1rem', filter: 'drop-shadow(0 0 10px rgba(0,0,0,0.5))' }} />
                     )}
                     <h1 style={{ fontSize: '1.8rem', color: 'white' }}>{config.nombreNegocio}</h1>
                     <p style={{ color: 'var(--text-secondary)', marginTop: '0.5rem' }}>Sistema de Gestión Integral</p>

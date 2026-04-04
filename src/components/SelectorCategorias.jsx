@@ -2,7 +2,7 @@ import React from 'react';
 
 const SelectorCategorias = ({ categorias, seleccionada, alSeleccionar }) => {
     return (
-        <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', overflowX: 'auto', paddingBottom: '0.5rem', whiteSpace: 'nowrap' }}>
+        <div className="no-scrollbar" style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', overflowX: 'auto', paddingBottom: '0.5rem', whiteSpace: 'nowrap' }}>
             {categorias.map(cat => (
                 <button
                     key={cat}

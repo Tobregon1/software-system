@@ -5,7 +5,7 @@ import Ticket from './components/Ticket';
 import LoadingSpinner from './components/LoadingSpinner';
 import PantallaLogin from './PantallaLogin';
 import PantallaDashboard from './PantallaDashboard';
-import PantallaVentas from './PantallaVentas';
+import PantallaPOS from './PantallaPOS';
 import PantallaHistorial from './PantallaHistorial';
 import PantallaCierre from './PantallaCierre';
 import PantallaInventario from './PantallaInventario';
@@ -17,6 +17,10 @@ import PantallaUsuarios from './PantallaUsuarios';
 
 
 function App() {
+  const [isPosMode] = useState(() => {
+    // Detectar si estamos en Electron (Modo POS)
+    return window.navigator.userAgent.toLowerCase().includes('electron');
+  });
   const [mostrarLogout, setMostrarLogout] = useState(false);
   const { notify } = useNotifications();
   const [user, setUser] = useState(() => {
@@ -28,7 +32,8 @@ function App() {
     }
   });
   const [pantallaActual, setPantallaActual] = useState(() => {
-    return localStorage.getItem('kiosco_screen') || 'Ventas';
+    if (isPosMode) return 'POS';
+    return localStorage.getItem('kiosco_screen') || 'Panel';
   });
   const [filtrosInventario, setFiltrosInventario] = useState({ soloBajoStock: false });
 
@@ -41,18 +46,27 @@ function App() {
     }
   }, [user]);
 
+  // Forzar sidebar cerrado en POS si es necesario, pero ahora el sidebar será dinámico
+  useEffect(() => {
+    if (isPosMode && pantallaActual === 'POS') {
+      setSidebarOpen(false);
+    } else if (window.innerWidth > 1024) {
+      setSidebarOpen(true);
+    }
+  }, [pantallaActual, isPosMode]);
+
   useEffect(() => {
     if (user) {
       localStorage.setItem('kiosco_screen', pantallaActual);
       
-      // Redirigir admin si está en Ventas (apartado deshabilitado para su rol)
-      if (user.rol === 'admin' && pantallaActual === 'Ventas') {
-        setPantallaActual('Panel');
+      // Redirigir admin si está en POS (puede entrar si quiere, o lo dejamos en Panel)
+      if (user.rol === 'admin' && pantallaActual === 'POS') {
+        // Opcional: setPantallaActual('Panel');
       }
     }
   }, [pantallaActual, user]);
   const [config, setConfig] = useState({
-    nombreNegocio: "Kiosco System",
+    nombreNegocio: "",
     direccion: "",
     telefono: "",
     mensajePie: ""
@@ -76,7 +90,7 @@ function App() {
       if (!user) return;
 
       // Mantener Enter para procesar venta si estamos en esa pantalla
-      if (e.key === 'Enter' && pantallaActual === 'Ventas') {
+      if (e.key === 'Enter' && pantallaActual === 'POS') {
         const event = new CustomEvent('procesar-venta');
         window.dispatchEvent(event);
       }
@@ -139,21 +153,35 @@ function App() {
             {config.logoUrl ? (
               <img src={config.logoUrl} alt="Logo" style={{ maxWidth: '100%', maxHeight: '50px', objectFit: 'contain' }} />
             ) : (
-              <img src="/logo3.png" alt="Logo PILLAR" style={{ width: '100%', maxWidth: '110%', height: 'auto', maxHeight: '200px', objectFit: 'contain', filter: 'drop-shadow(0 0 5px rgba(0,0,0,0.5))' }} />
+              <img src="/logo_horizontal_pillar.png" alt="Logo PILLAR" style={{ width: '100%', maxWidth: '110%', height: 'auto', maxHeight: '200px', objectFit: 'contain', filter: 'drop-shadow(0 0 5px rgba(0,0,0,0.5))' }} />
             )}
           </div>
 
           <div className="sidebar-menu">
-            {user.rol !== 'admin' && (
-              <button
-                onClick={() => navegar('Ventas')}
-                className={`nav-link ${pantallaActual === 'Ventas' ? 'active' : ''}`}
-              >
-                VENTAS
-              </button>
-            )}
-
-            {user.rol === 'admin' && (
+            {isPosMode ? (
+              // MENU MODO POS (.EXE)
+              <>
+                <button
+                  onClick={() => navegar('POS')}
+                  className={`nav-link ${pantallaActual === 'POS' ? 'active' : ''}`}
+                >
+                  PUNTO DE VENTA
+                </button>
+                <button
+                  onClick={() => navegar('Historial')}
+                  className={`nav-link ${pantallaActual === 'Historial' ? 'active' : ''}`}
+                >
+                  HISTORIAL
+                </button>
+                <button
+                  onClick={() => navegar('Caja')}
+                  className={`nav-link ${pantallaActual === 'Caja' ? 'active' : ''}`}
+                >
+                  CIERRE DE CAJA
+                </button>
+              </>
+            ) : (
+              // MENU MODO ADMIN (WEB)
               <>
                 <button
                   onClick={() => navegar('Panel')}
@@ -214,24 +242,6 @@ function App() {
                 </button>
               </>
             )}
-
-            {user.rol === 'cajero' && (
-              <>
-                <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)', margin: '15px 10px' }}></div>
-                <button
-                  onClick={() => navegar('Historial')}
-                  className={`nav-link ${pantallaActual === 'Historial' ? 'active' : ''}`}
-                >
-                  HISTORIAL
-                </button>
-                <button
-                  onClick={() => navegar('Caja')}
-                  className={`nav-link ${pantallaActual === 'Caja' ? 'active' : ''}`}
-                >
-                  CAJA
-                </button>
-              </>
-            )}
           </div>
         </aside>
 
@@ -255,7 +265,7 @@ function App() {
 
           <div className="app-container" style={{ flexGrow: 1, overflowY: 'auto' }}>
             {pantallaActual === 'Panel' && user.rol === 'admin' && <PantallaDashboard navegar={navegar} />}
-            {pantallaActual === 'Ventas' && <PantallaVentas onPrint={alImprimirFisico} config={config} />}
+            {pantallaActual === 'POS' && <PantallaPOS onPrint={alImprimirFisico} config={config} user={user} />}
             {pantallaActual === 'Historial' && <PantallaHistorial onPrint={alImprimirFisico} adminMode={user.rol === 'admin'} />}
             {pantallaActual === 'Caja' && <PantallaCierre user={user} />}
 

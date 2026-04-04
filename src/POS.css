@@ -1,0 +1,122 @@
+/* POS Specific Styles */
+.pos-container {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    height: calc(100vh - 100px);
+    gap: 1.5rem;
+    overflow: hidden;
+    padding: 0.5rem;
+}
+
+@media (max-width: 1200px) {
+    .pos-container {
+        grid-template-columns: 1fr;
+        height: auto;
+        overflow: visible;
+    }
+}
+
+.pos-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.pos-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.pos-search-input {
+    font-size: 1.5rem !important;
+    padding: 1.25rem 2rem !important;
+    border-radius: 1.25rem !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pos-search-input:focus {
+    border-color: var(--accent-primary) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.pos-total-card {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.05));
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    text-align: right;
+    margin-top: auto;
+}
+
+.pos-big-total {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--accent-primary);
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    line-height: 1;
+}
+
+.pos-cart-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin: 1rem 0;
+}
+
+.pos-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pos-btn-checkout {
+    width: 100%;
+    padding: 1.5rem !important;
+    font-size: 1.5rem !important;
+    letter-spacing: 2px;
+    margin-top: 1rem;
+    box-shadow: 0 15px 30px rgba(16, 185, 129, 0.3);
+}
+
+.shortcut-hint {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-left: 10px;
+    vertical-align: middle;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.pos-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+}
+
+/* Hide scrollbar for category selector */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}

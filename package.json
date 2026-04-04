@@ -1,5 +1,5 @@
 {
-  "name": "software",
+  "name": "pillar",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -38,11 +38,19 @@
     "vite": "^8.0.0-beta.13"
   },
   "build": {
-    "appId": "com.software.app",
-    "productName": "Software",
-    "artifactName": "Software.exe",
+    "appId": "com.pillar.app",
+    "productName": "Pillar",
+    "artifactName": "${productName}_Setup_${version}.${ext}",
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "executableName": "pillar"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Pillar"
     },
     "directories": {
       "output": "dist_electron"

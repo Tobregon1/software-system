@@ -13,13 +13,18 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         width: 1280,
         height: 800,
-        title: "Software",
-        icon: path.join(__dirname, 'build', 'icon.png'),
+        title: "Pillar",
+        icon: path.join(__dirname, 'build', 'logo1.png'),
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true,
         },
         autoHideMenuBar: true,
+    });
+
+    // Inyectar bandera POS para el frontend
+    mainWindow.webContents.on('did-finish-load', () => {
+        mainWindow.webContents.executeJavaScript('window.isPosOnly = true;');
     });
 
     // Start Express API Server

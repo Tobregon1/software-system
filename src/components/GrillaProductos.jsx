@@ -7,8 +7,6 @@ const GrillaProductos = ({ productos, alClick, categoriaSeleccionada }) => {
             gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
             gap: '0.75rem',
             marginBottom: '2rem',
-            maxHeight: '200px',
-            overflowY: 'auto',
             padding: '0.5rem'
         }}>
             {productos
